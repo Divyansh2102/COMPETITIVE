@@ -14,11 +14,6 @@ public:
             for(int j=n-2;j>=0;j--)
                 v[i][j]=v[i][j+1]+v[i+1][j];
         }
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++)
-                cout<<v[i][j]<<"    ";
-            cout<<endl;
-        }
         return v[0][0];
     }
 };
