@@ -11,18 +11,15 @@
  */
 class Solution {
 public:
-    TreeNode* convert(vector<int>&arr, int left,int right){  
-        if (left>right)
-            return NULL; 
-        int mid = (left +right)/2;
-        
-        TreeNode *temp=new TreeNode (arr[mid]);
-        temp->left= convert(arr,left,mid-1);
-        temp->right=convert(arr,mid+1,right);
+    TreeNode*convert(vector<int>&nums,int l,int h){
+        if(l>h)
+            return NULL;
+        int mid=(l+h)/2;
+        TreeNode *temp=new TreeNode(nums[mid]);
+        temp->left=convert(nums,l,mid-1);
+        temp->right=convert(nums,mid+1,h);
         return temp;
-        
     }
-    
     TreeNode* sortedArrayToBST(vector<int>& nums) {
         return convert(nums,0,nums.size()-1);
     }
