@@ -7,8 +7,6 @@ public:
         for(int i=1;i<n;i++){
             v[i+1]=gain[i]+v[i];
         }
-        for(int i=0;i<n+1;i++)
-            cout<<v[i]<<" ";
         sort(v.begin(),v.end());
         if(v[n]<0)
             return 0;
