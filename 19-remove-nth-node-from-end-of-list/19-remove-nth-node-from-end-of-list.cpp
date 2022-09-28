@@ -19,7 +19,7 @@ public:
         }
         if(i==1)
             return NULL;
-        i=i-n-1;
+        i-=n+1;
         if(i==-1){
             head=head->next;
             return head;
