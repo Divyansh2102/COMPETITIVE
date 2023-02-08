@@ -11,22 +11,17 @@
  */
 class Solution {
 public:
-    vector<int>v;
-    void pre(TreeNode*root){
+    void check(TreeNode*root,int data,bool &flag){
         if(root==NULL)  return;
-        v.push_back(root->val);
-        pre(root->left);
-        pre(root->right);
+        if(root->val!=data) flag=false;
+        check(root->left,data,flag);
+        check(root->right,data,flag);
     }
     bool isUnivalTree(TreeNode* root) {
-        pre(root);
-        unordered_map<int,int>mp;
-        for(auto i:v)
-            mp[i]++;
-        for(auto i:mp){
-            if(i.second!=v.size())
-                return false;
-        }
-        return true;
+        if(root==NULL)  return 1;
+        bool flag=1;
+        int data=root->val;
+        check(root,data,flag);
+        return flag;
     }
 };
