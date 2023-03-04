@@ -11,7 +11,8 @@ public:
         while(!pq.empty()){
             int x=pq.top().first;
             char y=pq.top().second;
-            s+=string(x,y);
+            while(x--)
+                s+=y;
             pq.pop();
         }
         return s;
