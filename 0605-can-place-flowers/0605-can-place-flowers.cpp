@@ -5,8 +5,8 @@ public:
         f.push_back(0);
         for(int i=1;i<f.size()-1;i++){
             if(f[i-1]+f[i]+f[i+1]==0){
-                n-=1;
                 f[i]=1;
+                n-=1;
             }
         }
         if(n<=0)    return 1;
