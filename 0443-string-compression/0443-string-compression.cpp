@@ -1,20 +1,20 @@
 class Solution {
 public:
     int compress(vector<char>& chars) {
-        int i=0,id=0,n=chars.size();
+        int i=0,j,ind=0,n=chars.size();
         while(i<n){
             int j=i+1;
-            while(j<n && chars[i]==chars[j])
+            while(j<n && chars[i]==chars[j]){
                 j++;
-            chars[id++]=chars[i];
-            int cnt=j-i;
-            if(cnt>1){
-                string st=to_string(cnt);
-                for(auto x:st)
-                    chars[id++]=x;
+            }
+            chars[ind++]=chars[i];
+            int len=j-i;
+            if(len>1){
+                string cnt=to_string(len);
+                for(auto c:cnt) chars[ind++]=c;
             }
             i=j;
         }
-        return id;
+        return ind;
     }
 };
