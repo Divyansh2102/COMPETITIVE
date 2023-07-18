@@ -2,7 +2,7 @@ class Solution {
 public:
     string simplifyPath(string path) {
         stack<string>st;
-        string res="";
+        string ans="";
         for(int i=0;i<path.size();i++){
             if(path[i]=='/')    continue;
             string temp="";
@@ -11,16 +11,14 @@ public:
                 i+=1;
             }
             if(temp==".")   continue;
-            else if(temp==".."){
-                if(st.size())   st.pop();
-            }
+            else if(temp=="..") {if(st.size()) st.pop();}
             else    st.push(temp);
         }
         while(st.size()){
-            res='/'+st.top()+res;
+            ans='/'+st.top()+ans;
             st.pop();
         }
-        if(res.size()==0)  return "/";
-        return res;
+        if(ans.size()==0)   return "/";
+        return ans;
     }
 };
