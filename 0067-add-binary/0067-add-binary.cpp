@@ -1,23 +1,19 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
-        string result="";
+        string ans="";
+        int i=a.size()-1,j=b.size()-1;
         int c=0;
-        int i=a.length()-1,j=b.length()-1;
-        int ans=0;
+        int temp=0;
         while(i>=0 || j>=0){
-            ans=c;
-            if(i>=0)
-                ans+=a[i--]-'0';
-            if(j>=0)
-                ans+=b[j--]-'0';
-            c=ans>1?1:0;
-            result+=to_string(ans%2);
+            temp=c;
+            if(i>=0)    temp+=a[i--]-'0';
+            if(j>=0)    temp+=b[j--]-'0';
+            c=temp>1?1:0;
+            ans+=to_string(temp%2);
         }
-        if(c>=1)
-            result+=to_string(1);
-        reverse(result.begin(),result.end());
-        return result;
+        if(c>=1)    ans+="1";
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
 };
-
