@@ -1,21 +1,19 @@
 class Solution {
 public:
-    void gen(int n,string st,vector<string>&ans,int oc,int cc){
+    void gena(vector<string>&ans,string st,int oc,int cc,int n){
         if(oc==n && cc==n){
             ans.push_back(st);
-            return;
+            return ;
         }
-        if(oc<n){
-            gen(n,st+"(",ans,oc+1,cc);
-        }
-        if(cc<oc){
-            gen(n,st+")",ans,oc,cc+1);
-        }
+        if(oc<n)    gena(ans,st+"(",oc+1,cc,n);
+        if(cc<oc)   gena(ans,st+")",oc,cc+1,n);
     }
     vector<string> generateParenthesis(int n) {
+        int oc,cc;
+        oc=cc=0;
         vector<string>ans;
-        int oc=0,cc=0;
-        gen(n,"",ans,oc,cc);
+        gena(ans,"",oc,cc,n);
         return ans;
     }
 };
+
