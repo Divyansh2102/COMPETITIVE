@@ -1,10 +1,10 @@
 class Solution {
-    public void swap(int []nums,int i,int j){
+    private void swap(int []nums,int i,int j){
         int temp=nums[i];
         nums[i]=nums[j];
         nums[j]=temp;
     }
-    public void reverse(int []nums,int st){
+    private void reverse(int []nums,int st){
         int i=st,j=nums.length-1;
         while(i<j){
             swap(nums,i,j);
